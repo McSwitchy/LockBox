@@ -1,0 +1,26 @@
+# move this file to root and specify `board_build.partitions = partition.csv` in platformio.ini
+# to set custom partitions. currently not using this file bc platformio arduino framework includes 
+# a variety of partition table csvs - we are using no_ota.csv which pio can find inside arduino framework
+
+# arduino-esp32 no_ota.csv "No OTA (2MB APP/2MB SPIFFS)"
+# src: https://github.com/espressif/arduino-esp32/blob/161b1673d9ad2804ff5a60a8db89464ad9bf69e7/tools/partitions/no_ota.csv
+# board-csv mappings: https://github.com/espressif/arduino-esp32/blob/7438c6e9b17cac97650665e59765863d9d3fd25e/boards.txt#L99 
+
+# esp-idf partitions_singleapp_large_coredump.csv
+# boards: https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-guides/partition-tables.html
+# src:    https://github.com/espressif/esp-idf/blob/master/components/partition_table/partitions_singleapp_large_coredump.csv
+# Name,   Type, SubType, Offset,  Size
+# nvs,      data, nvs,           ,  0x6000
+# phy_init, data, phy,           ,  0x1000
+# factory,  app,  factory,       ,  1500K
+# coredump, data, coredump,      ,  64K
+
+# arduino-esp32 huge_app.csv "Huge APP (3MB No OTA/1MB SPIFFS)"
+# boards: https://github.com/espressif/arduino-esp32/blob/7438c6e9b17cac97650665e59765863d9d3fd25e/boards.txt#L110C1-L112C1# 
+# src     https://github.com/espressif/arduino-esp32/blob/161b1673d9ad2804ff5a60a8db89464ad9bf69e7/tools/partitions/huge_app.csv
+# Name,   Type, SubType, Offset,  Size, Flags
+# nvs,      data, nvs,     0x9000,  0x5000,
+# otadata,  data, ota,     0xe000,  0x2000,
+# app0,     app,  ota_0,   0x10000, 0x300000,
+# spiffs,   data, spiffs,  0x310000,0xE0000,
+# coredump, data, coredump,0x3F0000,0x10000,

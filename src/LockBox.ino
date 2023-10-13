@@ -5,7 +5,7 @@
 #include <Adafruit_EPD.h>
 #include <Preferences.h>
 #include "RTClib.h"
-#include "time.h"
+#include "time.h"    // standard C timing functions
 #include "SPIFFS.h"
 //#include <SD.h>
 #include <ESPmDNS.h>
