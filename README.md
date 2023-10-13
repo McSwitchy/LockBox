@@ -69,3 +69,37 @@ https://discord.com/channels/710587363918741604/815286351070756905/1140341946871
 - create new application https://chaster.app/developers/applications/
   - name: Drone4770LockBox
   - redirect URI: http://lockbox.local/callback
+
+
+
+  ---
+
+  ```
+  
+  
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:1184
+load:0x40078000,len:13192
+load:0x40080400,len:3028
+entry 0x400805e4
+setup
+Couldn't find RTC
+[  1033][E][Wire.cpp:513] requestFrom(): i2cRead returned Error 263
+now.year(): 2115
+[  1035][E][Preferences.cpp:483] getString(): nvs_get_str len fail: pin NOT_FOUND
+[  1038][E][Preferences.cpp:483] getString(): nvs_get_str len fail: message NOT_FOUND
+[  1045][E][Preferences.cpp:483] getString(): nvs_get_str len fail: chasterLock NOT_FOUND
+[  1053][E][Preferences.cpp:483] getString(): nvs_get_str len fail: cRefreshToken NOT_FOUND
+[  1061][E][Preferences.cpp:483] getString(): nvs_get_str len fail: lockCode NOT_FOUND
+Initial Status :Free
+startScreen()
+ePaper display initialized
+startWifi
+
+Setup finished
+New minute
+  
+  ```

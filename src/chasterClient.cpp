@@ -1,4 +1,4 @@
-//#include <WiFi.h>
+#include <WiFi.h>
 #include <HTTPClient.h>
 #include "ChasterClient.h"
 #include <ESPAsyncWebServer.h>
@@ -10,8 +10,12 @@
 
 #define min(X, Y) (((X)<(Y))?(X):(Y))
 
+#ifndef MBEDTLS_SSL_SERVER_NAME_INDICATION
 #define MBEDTLS_SSL_SERVER_NAME_INDICATION
+#endif
+#ifndef MBEDTLS_SSL_VERIFY_REQUIRED
 #define MBEDTLS_SSL_VERIFY_REQUIRED
+#endif
 
 const char* fmtMemCk = "Free: %d\tMaxAlloc: %d\t PSFree: %d\n";
 #define MEMCK Serial.printf(fmtMemCk,ESP.getFreeHeap(),ESP.getMaxAllocHeap(),ESP.getFreePsram())

@@ -383,6 +383,8 @@ void reconnect() {
 void startWifi () {
   Serial.println("startWifi");
   int tries = 0;
+  Serial.print("[wifi]: 1st try startWifi; ssid, pass:\n    ");
+  Serial.print(wifissid); Serial.print('::'); Serial.println(wifipassword);
   WiFi.begin(wifissid, wifipassword);
   while (WiFi.status() != WL_CONNECTED) {
     delay(500);
@@ -396,8 +398,10 @@ void startWifi () {
     Serial.println("Trying to connect");
     while (WiFi.status() != WL_CONNECTED) {
       delay(500);
+      Serial.println("Trying to connect... again");
       if (++tries > 5) break;
     }
+    Serial.println("...giving up wifi, wont start server");
     if (++tries > 10) break;
   }
   wifiConnected = false;
